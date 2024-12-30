@@ -13,7 +13,7 @@ use std::borrow::Cow;
 use std::collections::HashMap;
 
 /// Represents a top-level section (e.g., `[profile name]`) in a config file.
-pub(crate) trait Section {
+pub trait Section {
     /// The name of this section
     fn name(&self) -> &str;
 
@@ -224,6 +224,17 @@ impl EnvConfigSections {
     /// Retrieves a named profile from the profile set
     pub fn get_profile(&self, profile_name: &str) -> Option<&Profile> {
         self.profiles.get(profile_name)
+    }
+
+    /// Retrieves a named profile from the profile set, mutably
+    pub fn get_profile_mut(&mut self, profile_name: &str) -> Option<&mut Profile> {
+        self.profiles.get_mut(profile_name)
+    }
+
+    /// Add a profile into the profile set
+    /// If the profile already exists, it will be overwritten, and the previous value returned.
+    pub fn insert_profile(&mut self, profile: Profile) -> Option<Profile> {
+        self.profiles.insert(profile.name().to_string(), profile)
     }
 
     /// Returns the name of the currently selected profile

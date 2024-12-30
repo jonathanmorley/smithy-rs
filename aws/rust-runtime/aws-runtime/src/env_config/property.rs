@@ -47,7 +47,7 @@ type PropertyValue = String;
 /// property-name =
 ///   sub-property-name = property-value
 /// ```
-#[derive(Clone, Debug, PartialEq, Eq, Hash)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct PropertiesKey {
     section_key: SectionKey,
     section_name: SectionName,
@@ -156,6 +156,11 @@ impl Properties {
             properties.insert(key.clone(), value.clone());
         }
         properties
+    }
+
+    /// Returns an iterator over the keys of the properties.
+    pub fn keys(&self) -> impl Iterator<Item = &PropertiesKey> {
+        self.inner.keys()
     }
 
     /// Insert a new key/value pair into this map.
