@@ -2,13 +2,11 @@
 [workspace]
 resolver = "2"
 members = [
-    "pokemon-service-common",
     "pokemon-service",
-    "pokemon-service-tls",
-    "pokemon-service-lambda",
-    "pokemon-service-server-sdk",
-    "pokemon-service-client",
     "pokemon-service-client-usage",
+    "pokemon-service-common",
+    "pokemon-service-lambda",
+    "pokemon-service-tls"
 ]
 
 [profile.release]
