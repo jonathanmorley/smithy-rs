@@ -1,19 +1,21 @@
 [workspace]
 resolver = "2"
 members = [
-    "inlineable",
     "aws-smithy-async",
     "aws-smithy-cbor",
     "aws-smithy-checksums",
-    "aws-smithy-compression",
     "aws-smithy-client",
+    "aws-smithy-compression",
     "aws-smithy-eventstream",
+    "aws-smithy-experimental",
     "aws-smithy-http",
     "aws-smithy-http-auth",
     "aws-smithy-http-server",
     "aws-smithy-http-server-python",
+    "aws-smithy-http-server-typescript",
     "aws-smithy-http-tower",
     "aws-smithy-json",
+    "aws-smithy-mocks-experimental",
     "aws-smithy-protocol-test",
     "aws-smithy-query",
     "aws-smithy-runtime",
@@ -21,7 +23,6 @@ members = [
     "aws-smithy-types",
     "aws-smithy-types-convert",
     "aws-smithy-wasm",
-    "aws-smithy-mocks-experimental",
-    "aws-smithy-experimental",
     "aws-smithy-xml",
+    "inlineable",
 ]
